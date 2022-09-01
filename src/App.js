@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ListOfGames from "./components/Games/ListOfGames";
+import { Route } from "wouter";
+import SingleGame from "./components/Games/SingleGame";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App-content">
+        <Route path="/" component={ListOfGames} />
+        <Route path="/game/:id" component={SingleGame} />
+        <Route path="/games/category/:category" component={ListOfGames} />
+        <Route path="/games/platform/:platform" component={ListOfGames} />
+      </section>
     </div>
   );
 }
