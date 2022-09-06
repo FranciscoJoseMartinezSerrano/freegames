@@ -7,9 +7,18 @@ const options = {
   },
 };
 
-export default async function getGames({
-  keyword = "s?sort-by=release-date",
-} = {}) {
+export default async function getGames(params = {}) {
+  const { category, platform, id, search } = params;
+
+  const keyword = id
+    ? `?id=${id}`
+    : category && platform
+    ? `s?category=${category}&platform=${platform}&sort-by=release-date`
+    : category || search
+    ? `s?category=${category ? category : search}&sort-by=release-date`
+    : platform
+    ? `s?platform=${platform}&sort-by=release-date`
+    : "s?sort-by=release-date";
 
   const apiURL = `https://free-to-play-games-database.p.rapidapi.com/api/game${keyword}`;
 

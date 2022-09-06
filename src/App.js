@@ -1,16 +1,32 @@
 import "./App.css";
-import ListOfGames from "./components/Games/ListOfGames";
 import { Route } from "wouter";
-import SingleGame from "./components/Games/SingleGame";
+import ListOfGames from "./components/Games/ListOfGames";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
+import SearchResults from "./pages/SearchResults";
+import SearchForm from "./components/Forms/SearchForm";
+import { GamesContextProvider } from "./context/GamesContext";
 
 function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <Route path="/" component={ListOfGames} />
-        <Route path="/game/:id" component={SingleGame} />
-        <Route path="/games/category/:category" component={ListOfGames} />
-        <Route path="/games/platform/:platform" component={ListOfGames} />
+        <header>
+          <SearchForm />
+        </header>
+        <GamesContextProvider>
+          <Route path="/" component={Home} />
+          <Route path="/game/:id" component={Detail} />
+          <Route
+            path="/games/category/:category/:platform?"
+            component={ListOfGames}
+          />
+          <Route
+            path="/games/platform/:platform/:category?"
+            component={ListOfGames}
+          />
+          <Route path="/search/:search?" component={SearchResults} />
+        </GamesContextProvider>
       </section>
     </div>
   );
