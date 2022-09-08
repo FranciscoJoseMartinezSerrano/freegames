@@ -1,11 +1,11 @@
-import "./App.css";
+import "App.css";
 import { Route } from "wouter";
-import ListOfGames from "./components/Games/ListOfGames";
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
-import SearchResults from "./pages/SearchResults";
-import SearchForm from "./components/Forms/SearchForm";
-import { GamesContextProvider } from "./context/GamesContext";
+import ListOfGames from "components/Games/ListOfGames";
+import Home from "pages/Home";
+import Detail from "pages/Detail";
+import SearchResults from "pages/SearchResults";
+import SearchForm from "components/Forms/SearchForm";
+import { GamesContextProvider } from "context/GamesContext";
 
 function App() {
   return (

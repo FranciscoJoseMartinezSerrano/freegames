@@ -16,7 +16,7 @@ export default function SearchForm() {
 
   const handleChange = (evt) => {
     const { value } = evt.target;
-    pushLocation(`/search/${value}`);
+    value ? pushLocation(`/search/${value}`) : pushLocation("/");
   };
 
   return (

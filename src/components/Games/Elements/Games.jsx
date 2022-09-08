@@ -1,7 +1,7 @@
 import React from "react";
 import Game from "./Game";
 
-export default function Games({ games }) {
+export default function Games({ games, limit = 12, page = 1 }) {
   return Array.isArray(games) ? (
     games.map(
       (
@@ -16,7 +16,7 @@ export default function Games({ games }) {
         },
         index
       ) => {
-        if (index < 10) {
+        if (index < limit * page) {
           return (
             <Game
               key={id ? id : index}

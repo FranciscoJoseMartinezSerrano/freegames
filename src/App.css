@@ -15,8 +15,9 @@ a {
 }
 
 .App-content {
-  background-color: #979797;
+  background-color: black;
   min-height: 100vh;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

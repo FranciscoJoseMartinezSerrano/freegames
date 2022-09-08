@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "wouter";
-import "../Game.css";
+
 
 export default function Game({
   thumbnail,
@@ -14,7 +14,7 @@ export default function Game({
   return (
     <section className="game">
       <Link to={`/game/${id}`}>
-        <img src={thumbnail} loading="lazy" alt={title} />
+        <img src={thumbnail} alt={title} />
       </Link>
       <article className="game-info">
         <Link to={`/game/${id}`}>

@@ -1,11 +1,4 @@
-const options = {
-  method: "GET",
-
-  headers: {
-    "X-RapidAPI-Key": "5682ccbd40mshd149987dda1820ep18b672jsnc841f27cafb3",
-    "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
-  },
-};
+import { options, API_URL } from "./settings";
 
 export default async function getGames(params = {}) {
   const { category, platform, id, search } = params;
@@ -13,20 +6,16 @@ export default async function getGames(params = {}) {
   const keyword = id
     ? `?id=${id}`
     : category && platform
-    ? `s?category=${category}&platform=${platform}&sort-by=release-date`
+    ? `s?category=${category}&platform=${platform}&sort-by=popularity`
     : category || search
-    ? `s?category=${category ? category : search}&sort-by=release-date`
+    ? `s?category=${category ? category : search}&sort-by=popularity`
     : platform
-    ? `s?platform=${platform}&sort-by=release-date`
-    : "s?sort-by=release-date";
+    ? `s?platform=${platform}&sort-by=popularity`
+    : "s?sort-by=popularity";
 
-  const apiURL = `https://free-to-play-games-database.p.rapidapi.com/api/game${keyword}`;
+  const apiURL = `${API_URL}${keyword}`;
 
-  try {
-    const response = await fetch(apiURL, options);
-    const response_1 = await response.json();
-    return response_1;
-  } catch (err) {
-    return console.error(err);
-  }
+  return fetch(apiURL, options)
+    .then((res) => res.json())
+    .catch((err) => console.error(err));
 }
