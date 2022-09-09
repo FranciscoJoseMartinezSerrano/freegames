@@ -1,6 +1,5 @@
 import "App.css";
 import { Route } from "wouter";
-import ListOfGames from "components/Games/ListOfGames";
 import Home from "pages/Home";
 import Detail from "pages/Detail";
 import SearchResults from "pages/SearchResults";
@@ -17,15 +16,15 @@ function App() {
         <GamesContextProvider>
           <Route path="/" component={Home} />
           <Route path="/game/:id" component={Detail} />
+          <Route path="/games" component={Home} />
           <Route
             path="/games/category/:category/:platform?"
-            component={ListOfGames}
+            component={SearchResults}
           />
           <Route
             path="/games/platform/:platform/:category?"
-            component={ListOfGames}
+            component={SearchResults}
           />
-          <Route path="/search/:search?" component={SearchResults} />
         </GamesContextProvider>
       </section>
     </div>

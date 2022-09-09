@@ -7,4 +7,4 @@ export const options = {
 };
 
 export const API_URL =
-  "https://free-to-play-games-database.p.rapidapi.com/api/game";
+  "https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=release-date";

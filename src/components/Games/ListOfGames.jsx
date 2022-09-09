@@ -1,39 +1,31 @@
 import React from "react";
 import "./Game.css";
 import Spinner from "../Spinner/Spinner";
-import useGames from "hooks/useGames";
 import Games from "./Elements/Games";
-import useGlobalGames from "hooks/useGlobalGames";
+import useGamesFilter from "hooks/useGamesFilter";
+import useGames from "hooks/useGames";
 
 export default function ListOfGames({ params, page = 1 }) {
-  const { loading } = useGames({ params });
+  const { games, gamesFiltered } = useGamesFilter({ params });
+  const { loading } = useGames();
 
-  const games = useGlobalGames();
-
-  if (params !== undefined) {
-    const { search, platform, category } = params;
-    const platformComparer = platform === "pc" ? "PC (Windows)" : "Web Browser";
-
-    const gamesFiltered = games.filter((gameFilter) =>
-      (search || category) !== undefined
-        ? gameFilter.genre.toLowerCase() === search ||
-          gameFilter.genre.toLowerCase() === category
-        : gameFilter.platform === platformComparer
-    );
-
-    return gamesFiltered.length ? (
-      <div className="list-games">
-        {loading ? <Spinner /> : <Games games={gamesFiltered} page={page} />}
-      </div>
+  const gamesToReturn =
+    games !== undefined ? (
+      <Games games={games} />
     ) : (
-      <h2>Not games found</h2>
+      <Games games={gamesFiltered} page={page} />
     );
-  }
 
   return (
     <>
       <div className="list-games">
-        {loading ? <Spinner /> : <Games games={games} />}
+        {loading ? (
+          <Spinner />
+        ) : games || gamesFiltered.length ? (
+          gamesToReturn
+        ) : (
+          <h2>Game not found</h2>
+        )}
       </div>
     </>
   );

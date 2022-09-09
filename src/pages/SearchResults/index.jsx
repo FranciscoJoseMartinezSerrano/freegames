@@ -3,7 +3,7 @@ import ListOfGames from "components/Games/ListOfGames";
 import useGames from "hooks/useGames";
 
 export default function SearchResults({ params }) {
-  const { setPage, page } = useGames({ params });
+  const { setPage, page } = useGames();
 
   const handleGameLimits = () => {
     return setPage((prevPage) => prevPage + 1);
