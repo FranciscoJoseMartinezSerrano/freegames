@@ -5,9 +5,21 @@ import Games from "./Elements/Games";
 import useGamesFilter from "hooks/useGamesFilter";
 import useGames from "hooks/useGames";
 
-export default function ListOfGames({ params, page = 1 }) {
+export default function ListOfGames({
+  params = {},
+  page = 1,
+  search = undefined,
+}) {
   const { games, gamesFiltered } = useGamesFilter({ params });
   const { loading } = useGames();
+
+  if (search !== undefined) {
+    return (
+      <div className="list-games">
+        <Games games={search} />
+      </div>
+    );
+  }
 
   const gamesToReturn =
     games !== undefined ? (

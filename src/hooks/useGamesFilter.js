@@ -2,8 +2,8 @@ import useGlobalGames from "./useGlobalGames";
 
 export default function useGamesFilter({ params = {} }) {
   const games = useGlobalGames();
-  const { platform: platformPar, category, id: idPar } = params;
 
+  const { platform: platformPar, category, id: idPar } = params;
   if (idPar !== undefined) {
     const id = parseInt(idPar);
     const game = games.filter((gameFilter) => gameFilter.id === id);

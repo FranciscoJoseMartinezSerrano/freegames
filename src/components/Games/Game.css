@@ -20,6 +20,7 @@
 
 .game img {
   cursor: pointer;
+  object-fit: contain;
 }
 
 .game-info {
