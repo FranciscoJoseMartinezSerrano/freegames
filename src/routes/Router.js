@@ -5,6 +5,7 @@ import Detail from "pages/Detail";
 import SearchGender from "pages/SearchResults/SearchGender";
 import SearchName from "pages/SearchResults/SearchName";
 
+
 export default function Router() {
   return (
     <>
@@ -19,7 +20,7 @@ export default function Router() {
         path="/games/platform/:platform/:category?"
         component={SearchGender}
       />
-      <Route path="/games/search/:results" component={SearchName} />
+      <Route path="/games/search/:titleResults" component={SearchName} />
     </>
   );
 }

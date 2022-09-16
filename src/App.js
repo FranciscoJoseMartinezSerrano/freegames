@@ -2,7 +2,7 @@ import "App.css";
 import Nav from "components/Header/Nav";
 import Router from "routes/Router";
 import { GamesContextProvider } from "context/GamesContext";
-
+   
 function App() {
   return (
     <div className="App">

@@ -2,32 +2,28 @@ import useGlobalGames from "./useGlobalGames";
 
 export default function useGamesFilter({ params = {} }) {
   const games = useGlobalGames();
+  const { platform, category, id } = params;
 
-  const { platform: platformPar, category, id: idPar } = params;
-  if (idPar !== undefined) {
-    const id = parseInt(idPar);
-    const game = games.filter((gameFilter) => gameFilter.id === id);
+  if (id) {
+    const parseId = parseInt(id);
+    const game = games.filter(({ id }) => id === parseId);
     return { game };
   }
 
-  if ((category || platformPar) !== undefined) {
-    const platformComparer =
-      platformPar === "pc" ? "PC (Windows)" : "Web Browser";
-
-    const gamesFiltered = games.filter((gameFilter) => {
-      const { genre, platform } = gameFilter;
-
-      if ((category && platformPar) !== undefined) {
+  if (category || platform) {
+    const platformComparer = platform === "pc" ? "PC (Windows)" : "Web Browser";
+    
+    const gamesFiltered = games.filter(({ genre, platform: elePlatform }) => {
+      if (category && platform) {
         return (
-          genre.toLowerCase() === category && platform === platformComparer
+          genre.toLowerCase() === category && elePlatform === platformComparer
         );
       }
-
-      return category !== undefined
+      return category
         ? genre.toLowerCase() === category
-        : platform === platformComparer;
+        : elePlatform === platformComparer;
     });
-
+    
     return { gamesFiltered };
   }
 

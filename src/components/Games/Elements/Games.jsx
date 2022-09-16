@@ -1,39 +1,31 @@
 import React from "react";
-import Game from "./Game";
+import useGamesFilter from "hooks/useGamesFilter";
+import GameMap from "./GameMap";
 
-export default function Games({ games, limit = 12, page = 1 }) {
-  return Array.isArray(games) ? (
-    games.map(
-      (
-        {
-          id,
-          thumbnail,
-          title,
-          release_date,
-          short_description,
-          genre,
-          platform,
-        },
-        index
-      ) => {
-        if (index < limit * page) {
-          return (
-            <Game
-              key={id ? id : index}
-              title={title}
-              thumbnail={thumbnail}
-              id={id}
-              release_date={release_date}
-              short_description={short_description}
-              genre={genre}
-              platform={platform}
-            />
-          );
-        }
-        return null;
-      }
-    )
-  ) : (
-    <h2>Something went wrong</h2>
+function Games({ params, page, gamesByTitle = undefined }) {
+  const { game, games, gamesFiltered } = useGamesFilter({ params });
+
+  if (gamesByTitle) {
+    return <GameMap games={gamesByTitle} page={page} />;
+  }
+
+  if (game) {
+    return <GameMap games={game} />;
+  }
+
+  const gamesToReturn = (
+    <GameMap games={games !== undefined ? games : gamesFiltered} page={page} />
+  );
+
+  return (
+    <>
+      {games || gamesFiltered.length ? (
+        gamesToReturn
+      ) : (
+        <h2>GameMap not found</h2>
+      )}
+    </>
   );
 }
+
+export default React.memo(Games);

@@ -1,17 +1,14 @@
 import React from "react";
 import ListOfGames from "components/Games/ListOfGames";
-import useGames from "hooks/useGames";
 
 export default function SearchResults({ params }) {
-  const { setPage, page } = useGames();
-
-  const handleGameLimits = () => {
-    return setPage((prevPage) => prevPage + 1);
-  };
+  const { category, platform } = params;
+  
   return (
     <>
-      <ListOfGames page={page} params={params} />
-      <button onClick={handleGameLimits}>Get more games</button>
+      {category ? <h2>Category: {category}</h2> : null}
+      {platform ? <h2>Platform: {platform}</h2> : null}
+      <ListOfGames params={params} />
     </>
   );
 }

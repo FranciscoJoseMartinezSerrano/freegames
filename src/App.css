@@ -30,16 +30,16 @@ a {
   position: sticky;
   top: 0;
   background-color: rgb(0, 0, 0, 0.8);
-  max-height: 60px;
-  width: 90%;
+  max-height: 100px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 #container {
-  width: 90%;
+  width: 95%;
   min-height: 90vh;
   margin: 0px auto;
 }

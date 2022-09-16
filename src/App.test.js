@@ -1,8 +1,20 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders select without crashing", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const selectTag = screen.getByText(/Shooter/i);
+  expect(selectTag).toBeInTheDocument();
+});
+
+test("renders search input without crashing", () => {
+  render(<App />);
+  const inputPlaceholder = screen.getByPlaceholderText(/Game title/i);
+  expect(inputPlaceholder).toBeInTheDocument();
+});
+
+test("render img", async () => {
+  render(<App />);
+  const imgAlt = await screen.findByAltText(/Rumbleverse/i);
+  expect(imgAlt).toBeInTheDocument();
 });

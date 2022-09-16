@@ -5,21 +5,16 @@ export default function SearchTitle() {
   const [, pushLocation] = useLocation();
   const inputRef = useRef();
 
-  const handleChange = (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
     const value = inputRef.current.value.toLowerCase();
     return value ? pushLocation(`/games/search/${value}`) : pushLocation("/");
   };
 
   return (
-    <form onSubmit={handleChange} className="name-form">
-      <input
-        onChange={handleChange}
-        ref={inputRef}
-        type="text"
-        placeholder="Game title"
-        required
-      />
+    <form onSubmit={handleSubmit} className="name-form">
+      <input ref={inputRef} type="text" placeholder="Game title" required />
+      <button>Search</button>
     </form>
   );
 }

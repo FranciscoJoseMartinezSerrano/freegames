@@ -1,33 +1,28 @@
 import React from "react";
 import { Link } from "wouter";
 
-
-export default function Game({
-  thumbnail,
-  title,
-  release_date,
-  short_description,
-  id,
-  genre,
-  platform,
-}) {
+function Game({ game = {} }) {
   return (
     <section className="game">
-      <Link to={`/game/${id}`}>
-        <img src={thumbnail} alt={title} />
+      <Link to={`/game/${game.id}`}>
+        <img loading="lazy" src={game.thumbnail} alt={game.title} />
       </Link>
       <article className="game-info">
-        <Link to={`/game/${id}`}>
-          <h4>{title}</h4>{" "}
+        <Link to={`/game/${game.id}`}>
+          <h4>{game.title}</h4>{" "}
         </Link>
         <p className="game-info-small">
           <small>
-            {genre} - {platform}
+            {game.genre} - {game.platform}
           </small>
-          <small>{release_date}</small>
+          <small>{game.release_date}</small>
         </p>
-        <p>{short_description}</p>
+        <p>{game.short_description}</p>
       </article>
     </section>
   );
 }
+
+export default React.memo(Game, (prevProps, nextProps) => {
+  return prevProps.id === nextProps.id;
+});

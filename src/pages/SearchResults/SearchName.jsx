@@ -3,22 +3,31 @@ import useGamesFilter from "hooks/useGamesFilter";
 import ListOfGames from "components/Games/ListOfGames";
 
 export default function SearchName({ params }) {
-  const { results } = params;
+  const { titleResults } = params;
   const { games } = useGamesFilter({});
 
+  const title = decodeURI(titleResults);
   const filterSearch = games.length
     ? games.filter((game) => {
-        const gameTitle = game.title.toLowerCase();
-        return gameTitle.includes(results.toLowerCase());
+        const gameTitle = game.title
+          .toLowerCase()
+          .replace(/[^a-zA-Z0-9 ]/g, "");
+        return gameTitle.includes(
+          title.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "")
+        );
       })
-    : undefined;
+    : [];
 
   return (
     <>
+      <h4>Searching: "{title}"</h4>
       {filterSearch.length ? (
-        <ListOfGames search={filterSearch} />
+        <ListOfGames gamesByTitle={filterSearch} />
       ) : (
-        <h2>Not game found</h2>
+        <>
+          <h3>Game not found!</h3>
+          <ListOfGames gamesByTitle={games} />
+        </>
       )}
     </>
   );
