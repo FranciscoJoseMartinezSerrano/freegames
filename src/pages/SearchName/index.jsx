@@ -1,8 +1,10 @@
 import React from "react";
 import useGamesFilter from "hooks/useGamesFilter";
 import ListOfGames from "components/Games/ListOfGames";
+import { Helmet } from "react-helmet";
 
 export default function SearchName({ params }) {
+  console.log(params);
   const { titleResults } = params;
   const { games } = useGamesFilter({});
 
@@ -20,6 +22,14 @@ export default function SearchName({ params }) {
 
   return (
     <>
+      <Helmet>
+        <title>Searching {title} | freeGames</title>
+        <meta name="description" content={"Results of " + title} />
+        <link
+          rel="canonical"
+          href={`https://freegames.vercel.app/games/search/${title}`}
+        />
+      </Helmet>
       <h4>Searching: "{title}"</h4>
       {filterSearch.length ? (
         <ListOfGames gamesByTitle={filterSearch} />

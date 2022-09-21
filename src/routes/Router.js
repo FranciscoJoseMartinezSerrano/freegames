@@ -2,23 +2,24 @@ import React from "react";
 import { Route } from "wouter";
 import Home from "pages/Home";
 import Detail from "pages/Detail";
-import SearchGender from "pages/SearchResults/SearchGender";
-import SearchName from "pages/SearchResults/SearchName";
-
+import SearchResults from "pages/SearchResults";
+import SearchName from "pages/SearchName";
+import Error from "pages/Error";
 
 export default function Router() {
   return (
     <>
       <Route path="/" component={Home} />
+      <Route path="/404" component={Error} />
       <Route path="/game/:id" component={Detail} />
       <Route path="/games" component={Home} />
       <Route
         path="/games/category/:category/:platform?"
-        component={SearchGender}
+        component={SearchResults}
       />
       <Route
         path="/games/platform/:platform/:category?"
-        component={SearchGender}
+        component={SearchResults}
       />
       <Route path="/games/search/:titleResults" component={SearchName} />
     </>

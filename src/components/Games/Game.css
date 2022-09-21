@@ -15,9 +15,9 @@
   border-radius: 15px;
   margin: 0px auto;
   color: #000000;
-  background-color: #c5c3c6;
-  border: 1px solid #c95559;
-  box-shadow: 1px 0px 5px #c95559;
+  background-color: #8d99ae;
+  border: 1px solid #ef233c;
+  box-shadow: 1px 0px 5px #ef233c;
 }
 
 .game img {
@@ -34,14 +34,13 @@
   justify-content: center;
 }
 .game-info a {
-  height: 90px;
+  height: 80px;
   max-height: 100px;
   width: 100%;
   display: flex;
   align-items: center;
 }
 .game-info a h4 {
-  color: #5e1719e0;
   font-size: 1.8rem;
   width: 100%;
 }
@@ -88,4 +87,39 @@
 
 i {
   font-size: 88px;
+}
+
+@media (max-width: 1000px) {
+  .game-info p {
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 780px) {
+  .game-info p {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 400px) {
+  .list-games {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .game {
+    max-width: 90%;
+    min-width: 255px;
+    min-height: 270px;
+    padding-bottom: 2%;
+  }
+  .game img {
+    width: 100%;
+    min-height: 142px;
+  }
+  .game-info a {
+    height: auto;
+    padding-bottom: 5px;
+  }
+  .game-info p {
+    font-size: 0.8em;
+  }
 }

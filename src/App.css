@@ -3,11 +3,23 @@
   margin: 0;
 }
 
+ul {
+  list-style-type: none;
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
-  color: #e41e25e0;
+  color: #edf2f4;
+  font-weight: bold;
   font-size: 32px;
+  padding: 0 10px;
+  transition: all 200ms;
+}
+
+a:hover {
+  color: #d90429;
+  text-decoration: underline;
 }
 
 .App {
@@ -15,7 +27,7 @@ a {
 }
 
 .App-content {
-  background-color: black;
+  
   min-height: 100vh;
   min-width: 100%;
   display: flex;
@@ -23,19 +35,16 @@ a {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #edf2f4;
 }
 
 #header {
   position: sticky;
   top: 0;
-  background-color: rgb(0, 0, 0, 0.8);
-  max-height: 100px;
+  background-color: rgb(43, 45, 66, 0.8);
+  max-height: 80px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 #container {

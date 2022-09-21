@@ -3,14 +3,10 @@ import useGamesFilter from "hooks/useGamesFilter";
 import GameMap from "./GameMap";
 
 function Games({ params, page, gamesByTitle = undefined }) {
-  const { game, games, gamesFiltered } = useGamesFilter({ params });
+  const { games, gamesFiltered } = useGamesFilter({ params });
 
   if (gamesByTitle) {
     return <GameMap games={gamesByTitle} page={page} />;
-  }
-
-  if (game) {
-    return <GameMap games={game} />;
   }
 
   const gamesToReturn = (
@@ -22,7 +18,7 @@ function Games({ params, page, gamesByTitle = undefined }) {
       {games || gamesFiltered.length ? (
         gamesToReturn
       ) : (
-        <h2>GameMap not found</h2>
+        <h2>No results found</h2>
       )}
     </>
   );

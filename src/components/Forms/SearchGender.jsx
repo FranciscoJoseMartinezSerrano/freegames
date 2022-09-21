@@ -20,7 +20,7 @@ export default function SearchGender() {
   };
 
   return (
-    <form className="gender-form">
+    <form className="form-gender">
       <SelectForm arr={genderArray} func={handleSelectChange} />
     </form>
   );

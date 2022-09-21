@@ -4,9 +4,10 @@ const GamesContext = React.createContext({});
 
 export function GamesContextProvider({ children }) {
   const [games, setGames] = useState([]);
-
   return (
-    <GamesContext.Provider value={{games, setGames}}>{children}</GamesContext.Provider>
+    <GamesContext.Provider value={{ games, setGames }}>
+      {children}
+    </GamesContext.Provider>
   );
 }
 

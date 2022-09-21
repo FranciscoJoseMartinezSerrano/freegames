@@ -12,7 +12,7 @@ export default function SearchTitle() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="name-form">
+    <form onSubmit={handleSubmit} className="form-name">
       <input ref={inputRef} type="text" placeholder="Game title" required />
       <button>Search</button>
     </form>

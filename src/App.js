@@ -1,20 +1,20 @@
-import "App.css";
-import Nav from "components/Header/Nav";
+import "./App.css";
+import Nav from "./components/Nav/Nav";
 import Router from "routes/Router";
 import { GamesContextProvider } from "context/GamesContext";
-   
+
 function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <GamesContextProvider>
-          <header id="header">
-            <Nav />
-          </header>
-          <section id="container">
+        <header id="header">
+          <Nav />
+        </header>
+        <section id="container">
+          <GamesContextProvider>
             <Router />
-          </section>
-        </GamesContextProvider>
+          </GamesContextProvider>
+        </section>
       </section>
     </div>
   );
