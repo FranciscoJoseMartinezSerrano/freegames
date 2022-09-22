@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DetailGameList({ item }) {
+export default function DetailGameList({ item = {} }) {
   const systemRequirements = Object.entries(item);
   return (
     <ul>

@@ -3,13 +3,13 @@ import React from "react";
 import Slider from "components/Slider/Slider";
 import DetailGameList from "./DetailGameList";
 
-export default function DetailGame({ game }) {
+export default function DetailGame({ game = {} }) {
   const screenshotsMap = game.screenshots.map(({ image }) => image);
   const screenshots = [game.thumbnail, ...screenshotsMap];
 
   return (
     <>
-      {game ? (
+      {game.id ? (
         <section className="detail-game">
           <article className="detail-info-top">
             <Slider imgs={screenshots} title={game.title} />

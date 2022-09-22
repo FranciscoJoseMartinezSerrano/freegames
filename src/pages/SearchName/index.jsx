@@ -4,7 +4,6 @@ import ListOfGames from "components/Games/ListOfGames";
 import { Helmet } from "react-helmet";
 
 export default function SearchName({ params }) {
-  console.log(params);
   const { titleResults } = params;
   const { games } = useGamesFilter({});
 
