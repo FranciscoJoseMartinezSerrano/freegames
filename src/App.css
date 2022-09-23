@@ -22,12 +22,15 @@ a:hover {
   text-decoration: underline;
 }
 
+h4 {
+  text-transform: capitalize;
+}
+
 .App {
   text-align: center;
 }
 
 .App-content {
-  min-height: 100vh;
   min-width: 100%;
   display: flex;
   flex-direction: column;
@@ -41,7 +44,7 @@ a:hover {
   position: sticky;
   top: 0;
   background-color: rgb(43, 45, 66, 0.8);
-  max-height: 80px;
+  max-height: 90px;
   width: 100%;
   padding: 10px 0;
 }

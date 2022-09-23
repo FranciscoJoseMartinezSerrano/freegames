@@ -5,7 +5,7 @@
 
 .slider img {
   width: 455px;
-  height: 296px;
+  max-height: 296px;
   box-shadow: 0px 0px 5px #8d99ae;
 }
 
@@ -18,6 +18,14 @@
   padding: 0 5px;
   cursor: pointer;
   box-shadow: 0px 0px 5px #8d99ae;
+}
+
+.slider .left {
+  border-radius: 10px 0 0 10px;
+}
+
+.slider .rigth {
+  border-radius: 0 10px 10px 0;
 }
 
 .slider .slider-btn:hover {
@@ -33,6 +41,9 @@
     width: 90%;
     height: 100%;
   }
+}
+
+@media (max-width: 616px) {
   .slider .slider-btn {
     box-shadow: none;
     height: 100%;
@@ -45,7 +56,7 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 350px) {
   .slider {
     max-height: 152px;
     margin-bottom: 10px;

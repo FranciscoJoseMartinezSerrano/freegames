@@ -22,8 +22,8 @@ export default function SearchResults({ params }) {
         />
         <link rel="canonical" href={`https://freegames.vercel.app${path}`} />
       </Helmet>
-      {category ? <h2>Category: {category}</h2> : null}
-      {platform ? <h2>Platform: {platform}</h2> : null}
+      {category ? <h4>Category: {category}</h4> : null}
+      {platform ? <h4>Platform: {platform}</h4> : null}
       <ListOfGames params={params} />
     </>
   );

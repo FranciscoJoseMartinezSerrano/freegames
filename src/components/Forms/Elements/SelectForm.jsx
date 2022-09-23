@@ -1,9 +1,24 @@
 import React from "react";
 
-export default function SelectForm({ arr, func }) {
+const genderArray = [
+  "All Genres",
+  "Shooter",
+  "Strategy",
+  "Moba",
+  "MMO",
+  "MMORPG",
+  "Fighting",
+  "Sports",
+  "Social",
+  "Racing",
+];
+
+
+export default function SelectForm({  func }) {
   return (
     <select onChange={func} name="dropdown" className="search-select">
-      {arr.map((el) => {
+      <option disabled>Genre/Tag</option>
+      {genderArray.map((el) => {
         const element = el.toLowerCase();
         return element === "all genres" ? (
           <option key={el} defaultValue="" value="">

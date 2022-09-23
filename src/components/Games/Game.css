@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(365px, 1fr));
   width: 100%;
-  min-height: 100vh;
   margin: 15px 0;
   gap: 16px;
 }

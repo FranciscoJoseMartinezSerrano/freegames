@@ -27,7 +27,7 @@ export default function Slider({ imgs, title }) {
     <>
       <section className="slider">
         {images.length >= 2 ? (
-          <button className="slider-btn" onClick={handlePrevious}>
+          <button className="slider-btn left" onClick={handlePrevious}>
             <span>&#10092;</span>
           </button>
         ) : null}
@@ -38,7 +38,7 @@ export default function Slider({ imgs, title }) {
           alt={`${title} imgs`}
         />
         {images.length >= 2 ? (
-          <button className="slider-btn" onClick={handleNext}>
+          <button className="slider-btn rigth" onClick={handleNext}>
             <span>&#10093;</span>
           </button>
         ) : null}

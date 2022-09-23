@@ -9,7 +9,7 @@ export default function Nav() {
     <nav className="nav">
       <section className="nav-links">
         <Link to="/">Home</Link>
-        <Link to="/">About</Link>
+        <Link to="/freegames/about">About</Link>
       </section>
       <SearchTitle />
       <SearchGender />

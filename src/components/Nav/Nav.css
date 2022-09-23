@@ -18,13 +18,15 @@
 
 .form-name input[type="text"] {
   font-size: 1rem;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 10px 0 0 10px;
+  background-color: #edf2f4;
+  box-sizing: border-box;
 }
 
 .form-name button {
   font-size: 1.03rem;
-  padding: 5px 10px;
+  padding: 10px 10px;
   border-radius: 0 10px 10px 0;
   cursor: pointer;
   background-color: #8d99ae;
@@ -40,17 +42,16 @@
 .form-name button:hover,
 .form-gender select:focus {
   transition: all 200ms;
-  background-color: white;
+  background-color: #edf2f4;
   color: black;
-}
-.nav-off {
-  display: none;
 }
 
 @media (max-width: 950px) {
   #header {
     max-height: fit-content;
+    padding: 0;
     padding-bottom: 35px;
+    margin-bottom: 0;
   }
   .nav {
     grid-template-columns: repeat(1, 1fr);
@@ -58,7 +59,7 @@
   }
   .nav-links {
     justify-content: center;
-    gap: 15%;
+    gap: 10%;
   }
   .form-name button {
     font-size: 1.02rem;

@@ -6,6 +6,13 @@ import DetailGameList from "./DetailGameList";
 export default function DetailGame({ game = {} }) {
   const screenshotsMap = game.screenshots.map(({ image }) => image);
   const screenshots = [game.thumbnail, ...screenshotsMap];
+  const companyDetail = {
+    Developer: game.developer,
+    Publiser: game.publisher,
+    Genre: game.genre,
+    Platform: game.platform,
+    Date: game.release_date,
+  };
 
   return (
     <>
@@ -18,11 +25,7 @@ export default function DetailGame({ game = {} }) {
               <DetailGameList item={game.minimum_system_requirements} />
             </article>
             <section className="detail-company">
-              <small>Developer: {game.developer}</small>
-              <small>Publiser: {game.publisher}</small>
-              <small>Genre: {game.genre}</small>
-              <small>Platform: {game.platform}</small>
-              <small>Date: {game.release_date}</small>
+              <DetailGameList item={companyDetail} />
             </section>
           </article>
           <article className="detail-info-bottom">

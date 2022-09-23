@@ -38,7 +38,7 @@
   font-style: italic;
 }
 
-.detail-company {
+.detail-company ul {
   display: grid;
   padding: 10px 0;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -46,7 +46,7 @@
   align-items: center;
 }
 
-.detail-company small,
+.detail-company li,
 .detail-info-bottom a {
   font-size: 0.7em;
   font-weight: 300;
@@ -57,23 +57,25 @@
 
 .detail-info-bottom a {
   font-size: 0.9em;
+  text-decoration: underline;
   color: #edf2f4;
 }
 
 .detail-info-bottom a:hover {
   color: #d90429;
-  text-decoration: underline;
 }
 
 @media (max-width: 950px) {
   .detail-game {
     flex-flow: column nowrap;
+    justify-content: center;
+    padding-top: 10px;
   }
   .detail-info-bottom h1 {
     padding: 0;
     margin: 0;
   }
-  .detail-company {
+  .detail-company ul {
     gap: 0;
     padding: 0;
   }
@@ -86,11 +88,11 @@
   .detail-info-top {
     margin-bottom: 10px;
   }
-  .detail-company {
+  .detail-company ul {
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 1%;
   }
-  .detail-company small {
+  .detail-company li {
     padding: 5px;
   }
 }
