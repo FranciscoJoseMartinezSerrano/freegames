@@ -20,10 +20,12 @@ export default function DetailGame({ game = {} }) {
         <section className="detail-game">
           <article className="detail-info-top">
             <Slider imgs={screenshots} title={game.title} />
-            <article className="detail-requirements">
-              <h4>System requirements</h4>
-              <DetailGameList item={game.minimum_system_requirements} />
-            </article>
+            {game.minimum_system_requirements ? (
+              <article className="detail-requirements">
+                <h4>System requirements</h4>
+                <DetailGameList item={game.minimum_system_requirements} />
+              </article>
+            ) : null}
             <section className="detail-company">
               <DetailGameList item={companyDetail} />
             </section>

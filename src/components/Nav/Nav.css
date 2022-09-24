@@ -49,7 +49,7 @@
 @media (max-width: 950px) {
   #header {
     max-height: fit-content;
-    padding: 0;
+    padding: 5px 0;
     padding-bottom: 35px;
     margin-bottom: 0;
   }
