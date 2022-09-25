@@ -30,7 +30,6 @@ export default function Slider({ imgs = [], title = "freegames" }) {
           </button>
         ) : null}
         <img className="slider-img" src={images[index]} alt={`${title} imgs`} />
-
         {images.length >= 2 ? (
           <button className="slider-btn rigth" onClick={handleNext}>
             <span>&#10093;</span>

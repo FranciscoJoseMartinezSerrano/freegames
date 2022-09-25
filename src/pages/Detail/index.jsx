@@ -36,6 +36,7 @@ export default function Detail({ params }) {
           rel="canonical"
           href={`https://freegames.vercel.app/game/${game.id}`}
         />
+        <link rel="preload" as="image" href={game.thumbnail} />
       </Helmet>
       <DetailGame game={game} />
     </>
