@@ -1,11 +1,9 @@
 import "./Slider.css";
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const INITIAL_INDEX = 0;
 
-export default function Slider({ imgs, title }) {
+export default function Slider({ imgs = [], title = "freegames" }) {
   const [images, setImages] = useState([]);
   const [index, setIndex] = useState(INITIAL_INDEX);
 
@@ -31,12 +29,8 @@ export default function Slider({ imgs, title }) {
             <span>&#10092;</span>
           </button>
         ) : null}
-        <img
-          className="slider-img"
-          src={images[index]}
-          loading="lazy"
-          alt={`${title} imgs`}
-        />
+        <img className="slider-img" src={images[index]} alt={`${title} imgs`} />
+
         {images.length >= 2 ? (
           <button className="slider-btn rigth" onClick={handleNext}>
             <span>&#10093;</span>

@@ -5,7 +5,7 @@ function Game({ game = {} }) {
   return (
     <section className="game">
       <Link to={`/game/${game.id}`}>
-        <img loading="lazy" src={game.thumbnail} alt={game.title} />
+        <img src={game.thumbnail} alt={game.title} />
       </Link>
       <article className="game-info">
         <Link to={`/game/${game.id}`}>

@@ -23,7 +23,8 @@
   cursor: pointer;
   object-fit: contain;
   border-radius: 15px 15px 0 0;
-  min-height: 206px;
+  width: 365px;
+  height: 206px;
 }
 
 .game-info {
@@ -38,12 +39,18 @@
   width: 100%;
   display: flex;
   align-items: center;
-}
-.game-info a h4 {
   font-size: 1.8rem;
-  width: 100%;
+  color: #2b2d42;
+  transition: all 200ms;
 }
 
+.game-info a:hover {
+  color: #d90429;
+}
+
+.game-info a h4 {
+  width: 100%;
+}
 .game-info-small {
   display: flex;
   justify-content: space-between;
@@ -78,12 +85,6 @@
   justify-content: space-between;
 }
 
-.game-page .game img,
-.game-page .game-info {
-  width: 50%;
-  height: 100%;
-}
-
 i {
   font-size: 88px;
 }
@@ -105,14 +106,15 @@ i {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
   .game {
-    max-width: 90%;
-    min-width: 255px;
+    width: 300px;
     min-height: 270px;
     padding-bottom: 2%;
+    display: flex;
+    flex-flow: column nowrap;
   }
   .game img {
-    width: 100%;
-    min-height: 142px;
+    width: 299px;
+    height: 100%;
   }
   .game-info a {
     height: auto;
